@@ -1,0 +1,9 @@
+<launch>
+	<include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+
+	<node pkg="cat_dog" name="cat_dog" type="avoid_obstacle_rplidar_rc_pub_constant.py" output="screen">
+	<rosparam file="$(find cat_dog)/param/params.yaml" />
+	</node>
+	
+	<node pkg="cat_dog" name="rplidar_obstacle_detector" type="rplidar_obstacle_detector.py" output="screen"/>	
+</launch>
